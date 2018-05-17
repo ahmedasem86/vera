@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLandsTable extends Migration
+class CreateContractorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,13 @@ class CreateLandsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lands', function (Blueprint $table) {
+        Schema::create('contractors', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
             $table->string('address');
-            $table->string('type');
-            $table->float('area',10, 2);
-            $table->float('price', 10, 2);
-            $table->float('predicted_cost', 10, 2);
-            $table->Date('contract_date');
-            $table->Date('delivery_date');
+            $table->bigInteger('contractor_id');
+            $table->bigInteger('mobile_no');
             $table->timestamps();
         });
     }
@@ -35,6 +31,6 @@ class CreateLandsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lands');
+        Schema::dropIfExists('contractors');
     }
 }

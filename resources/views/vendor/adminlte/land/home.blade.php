@@ -21,14 +21,16 @@
             </tr>
           </thead>
           <tbody>
-                <tr >
+
                   @foreach ($lands as $land)
+										<tr >
                     <td><a href="land/{{$land->id}}">{{$land->name}}</a></td>
                     <td><a href="land/{{$land->id}}">{{$land->address}}</a></td>
                     <td><a href="land/{{$land->id}}">{{$land->contract_date}}</a></td>
                     <td><a href="land/{{$land->id}}">{{$land->delivery_date}}</a></td>
+									</tr>
+
                   @endforeach
-                </tr>
           </tbody>
         </table>
       </div>

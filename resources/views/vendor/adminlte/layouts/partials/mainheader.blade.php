@@ -138,7 +138,7 @@
                 <a href="#" class="btn btn-default btn-flat">ملف شخصي</a>
               </div>
               <div class="pull-right">
-                <a href="logout" class="btn btn-default btn-flat">تسجبل الخروج</a>
+                <a href="/logout" class="btn btn-default btn-flat">تسجبل الخروج</a>
               </div>
             </li>
           </ul>

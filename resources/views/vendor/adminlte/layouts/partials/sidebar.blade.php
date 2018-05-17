@@ -33,21 +33,117 @@
         <ul class="sidebar-menu">
             {{-- <li class="header">{{ trans('adminlte_lang::message.land') }}</li> --}}
             <!-- Optionally, you can add icons to the links -->
-            <li class="active treeview">
+            <li class=" treeview">
               <a href="/land"><i class='fa fa-building'></i> <span>{{ trans('adminlte_lang::message.land') }}</span>
                 <i class="fa fa-angle-left pull-left"></i></a>
               <ul class="treeview-menu">
                   <li><a href="/land">{{ trans('adminlte_lang::message.viewlands') }}</a></li>
                   <li><a href="/land/add">{{ trans('adminlte_lang::message.addland') }}</a></li>
-              </ul>            </li>
-            <li><a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.anotherlink') }}</span></a></li>
-            <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+              </ul>
+             </li>
+             <li class=" treeview">
+               <a href="/partners"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::land.partners') }}</span>
+                 <i class="fa fa-angle-left pull-left"></i></a>
+               <ul class="treeview-menu">
+                   <li><a href="/partners">{{ trans('adminlte_lang::land.viewpartners') }}</a></li>
+                   <li><a href="/partners/add">{{ trans('adminlte_lang::land.addpartner') }}</a></li>
+               </ul>
+              </li>
+              <li class="treeview">
+                  <a href="#"><i class='fa fa-link'></i> <span>تنفيذات المقاولات</span> <i class="fa fa-angle-left pull-left"></i></a>
+                  <ul class="treeview-menu">
+                      <li class="treeview">
+                          <a href="#"><i class='fa fa-link'></i> <span>مقاولون</span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <ul class="treeview-menu">
+                              <li><a href="/contractors">عرض المقاولون</a></li>
+                              <li><a href="/contractor/add">إضافة مقاول</a></li>
+                          </ul>
+                      </li>
+                      <li class="treeview">
+                          <a href="#"><i class='fa fa-link'></i> <span>بنود</span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <ul class="treeview-menu">
+                              <li><a href="/items">عرض البنود</a></li>
+                              <li><a href="/item/add">إضافة بند</a></li>
+                          </ul>
+                      </li>
+                      <li class="treeview">
+                          <a href="#"><i class='fa fa-link'></i> <span>أعمال</span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <ul class="treeview-menu">
+                              <li><a href="/works">عرض الأعمال</a></li>
+                              <li><a href="/work/add">أضافة أعمال</a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </li>
+              <li class="treeview">
+                  <a href="#"><i class='fa fa-link'></i> <span>توريدات المقاولات</span> <i class="fa fa-angle-left pull-left"></i></a>
+                  <ul class="treeview-menu">
+                      <li class="treeview">
+                          <a href="#"><i class='fa fa-link'></i> <span>موردون</span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <ul class="treeview-menu">
+                              <li><a href="/suppliers">عرض الموردون</a></li>
+                              <li><a href="/supplier/add">إضافة مورد</a></li>
+                          </ul>
+                      </li>
+                      <li class="treeview">
+                          <a href="#"><i class='fa fa-link'></i> <span>مشتريات</span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <ul class="treeview-menu">
+                              <li><a href="/purchases">عرض المشتريات</a></li>
+                              <li><a href="/purchase/add">إضافة مشتريات</a></li>
+                          </ul>
+                      </li>
+                      <li class="treeview">
+                          <a href="#"><i class='fa fa-link'></i> <span>خامات</span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <ul class="treeview-menu">
+                              <li><a href="/materials">سجل الخامات </a></li>
+                              <li><a href="/material/add">إضافة خامة للسجل </a></li>
+                          </ul>
+                      </li>
+                  </ul>
+              </li>
+              <li class="treeview">
+                  <a href="#"><i class='fa fa-link'></i> <span>بيع الوحدات </span> <i class="fa fa-angle-left pull-left"></i></a>
+                  <ul class="treeview-menu">
+                      <li class="treeview">
+                          <a href="#"><i class='fa fa-link'></i> <span>العملاء </span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <ul class="treeview-menu">
+                              <li><a href="/clients">عرض العملاء</a></li>
+                              <li><a href="/client/add">إضافة عميل</a></li>
+                          </ul>
+                          <li><a href="/clients">كاش</a></li>
+                          <li><a href="/clients">تقسيط</a></li>
+
+                      </li>
+                      {{-- <li class="treeview">
+                          <a href="#"><i class='fa fa-link'></i> <span>مشتريات</span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <ul class="treeview-menu">
+                              <li><a href="/purchases">عرض المشتريات</a></li>
+                              <li><a href="/purchase/add">إضافة مشتريات</a></li>
+                          </ul>
+                      </li>
+                      <li class="treeview">
+                          <a href="#"><i class='fa fa-link'></i> <span>خامات</span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <ul class="treeview-menu">
+                              <li><a href="/materials">سجل الخامات </a></li>
+                              <li><a href="/material/add">إضافة خامة للسجل </a></li>
+                          </ul>
+                      </li> --}}
+                  </ul>
+              </li>
+               <li class="treeview">
+                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::cleaning.cleaning') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
+                    <li><a href="#">مرتبات</a></li>
+                    <li><a href="#">العملاء</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+             <a href="#"><i class='fa fa-link'></i> <span>الخزينه</span> <i class="fa fa-angle-left pull-right"></i></a>
+             <ul class="treeview-menu">
+                 <li><a href="#">مصروفات</a></li>
+                 <li><a href="#">ايرادات</a></li>
+             </ul>
+         </li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
