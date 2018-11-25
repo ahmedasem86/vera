@@ -39,7 +39,7 @@
 							 </div>
 								 </div>
              <div class="box-footer">
-               <button type="submit" class="btn btn-primary">{{ trans('adminlte_lang::land.add') }}</button>
+               <button type="submit" class="btn btn-primary">إضافه</button>
              </div>
            </form>
          </div>

@@ -62,7 +62,7 @@
 										 <textarea name="notes" class="form-control" id="exampleInputEmail1" placeholder="ملحوظات"></textarea>
 									 </div>
              <div class="box-footer">
-               <button type="submit" class="btn btn-primary">{{ trans('adminlte_lang::land.add') }}</button>
+               <button type="submit" class="btn btn-primary">إضافة</button>
              </div>
            </form>
          </div>

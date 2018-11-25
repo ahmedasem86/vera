@@ -24,7 +24,7 @@
             @endif
 
             <div class="login-box-body">
-                <p class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>
+                <p class="login-box-msg"> تسجيل الدخول </p>
                 <form action="{{ url('/login') }}" method="post">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <login-input-field
@@ -32,30 +32,30 @@
                             domain="{{ config('auth.defaults.domain','') }}"
                     ></login-input-field>
                     <div class="form-group has-feedback">
-                    <input type="email" class="form-control" placeholder="{{ trans('adminlte_lang::message.email') }}" name="email"/>
+                    <input type="email" class="form-control" placeholder="أسم المستخدم" name="email"/>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" class="form-control" placeholder="{{ trans('adminlte_lang::message.password') }}" name="password"/>
+                        <input type="password" class="form-control" placeholder="كلمة السر" name="password"/>
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="row">
                         <div class="col-xs-8">
                             <div class="checkbox icheck">
                                 <label>
-                                    <input style="" type="checkbox" name="remember"> {{ trans('adminlte_lang::message.remember') }}
+                                    <input style="" type="checkbox" name="remember"> تذكرني
                                 </label>
                             </div>
                         </div><!-- /.col -->
                         <div class="col-xs-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('adminlte_lang::message.buttonsign') }}</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">دخول</button>
                         </div><!-- /.col -->
                     </div>
                 </form>
 
                 {{-- @include('adminlte::auth.partials.social_login') --}}
 
-                <a href="{{ url('/password/reset') }}">{{ trans('adminlte_lang::message.forgotpassword') }}</a><br>
+                <a href="{{ url('/password/reset') }}">نسيت كلمة المرور الخاصه بي</a><br>
                 {{-- <a href="{{ url('/register') }}" class="text-center">{{ trans('adminlte_lang::message.registermember') }}</a> --}}
 
             </div><!-- /.login-box-body -->

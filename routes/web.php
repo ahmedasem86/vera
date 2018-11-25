@@ -47,9 +47,16 @@ Route::get('/client/add', 'ClientController@add')->middleware('auth');
 Route::get('/client/store', 'ClientController@store')->middleware('auth');
 Route::get('/units', 'UnitController@home')->middleware('auth');
 Route::get('/unit/add', 'UnitController@add')->middleware('auth');
-Route::get('/unit/store', 'UnitController@store')->middleware('auth');
+Route::post('/unit/store', 'UnitController@store')->middleware('auth');
 Route::get('/addunit/{id}', 'UnitController@add')->middleware('auth');
-
+Route::get('/unit/{id}', 'UnitController@single')->middleware('auth');
+Route::get('/employee', 'EmployeeController@home')->middleware('auth');
+Route::get('/employee/add', 'EmployeeController@add')->middleware('auth');
+Route::post('/employee/store', 'EmployeeController@store')->middleware('auth');
+Route::get('/employee/{id}', 'EmployeeController@single')->middleware('auth');
+Route::get('/salary/add/{id}', 'SalaryController@add')->middleware('auth');
+Route::post('/salary/store', 'SalaryController@store')->middleware('auth');
+Route::get('/salary/{id}', 'SalaryController@single')->middleware('auth');
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware

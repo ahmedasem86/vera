@@ -9,15 +9,15 @@
 	<div class="container-fluid spark-screen">
     <div class="row">
 			<div >
-				<h2 style="color:#3c8dbc;">{{$land->name}}</h2>
+				<h2 style="color:#5d64a6;">{{$land->name}}</h2>
 			</div>
 
       <div class="col-md-12 " style="background-color:white; padding-top:10px;">
         <table class="table table-striped text-center">
           <thead>
             <tr class="text-center">
-              <td>{{ trans('adminlte_lang::land.landname') }}</td>
-              <td>{{ trans('adminlte_lang::land.landaddress') }}</td>
+              <td>اسم القطعة</td>
+              <td>عنوان القطعة</td>
             </tr>
           </thead>
           <tbody>
@@ -28,8 +28,8 @@
           </tbody>
         <thead>
           <tr class="text-center">
-            <td>{{ trans('adminlte_lang::land.area') }}</td>
-            <td>{{ trans('adminlte_lang::land.type') }}</td>
+            <td>مساحة القطعة</td>
+            <td>نوع القطعة</td>
           </tr>
         </thead>
         <tbody>
@@ -40,8 +40,8 @@
         </tbody>
         <thead>
           <tr class="text-center">
-            <td>{{ trans('adminlte_lang::land.price') }}</td>
-            <td>{{ trans('adminlte_lang::land.predicted_cost') }}</td>
+            <td>سعر القطعة</td>
+            <td>التكلفة المتوقعة</td>
           </tr>
         </thead>
         <tbody>
@@ -52,8 +52,8 @@
         </tbody>
         <thead>
           <tr class="text-center">
-            <td>{{ trans('adminlte_lang::land.contract_date') }}</td>
-            <td>{{ trans('adminlte_lang::land.delivery_date') }}</td>
+            <td>تاريخ التعاقد</td>
+            <td>تاريخ التسليم</td>
           </tr>
         </thead>
         <tbody>
@@ -68,7 +68,7 @@
 
 		<div style="margin-top:15px;">
 			<div class="col-md-9">
-				<h2 style="color:#3c8dbc;">الشركاء</h2>
+				<h2 style="color:#5d64a6;">الشركاء</h2>
 			</div>
 			<div class="col-md-3">
 				<form class="" action="/addpartner/{{$land->id}}" method="get">
@@ -109,7 +109,7 @@
 								<td>{{$partner->pivot->total_percentage}}%</td>
 	            </tr>
 						@endforeach
-							<tfoot style="background-color:#3c8dbc; color:white;">
+							<tfoot style="background-color:#5d64a6; color:white;">
 								<td>الإجمالي</td>
 								<td>{{$total_land_percentage}}%</td>
 								<td>{{$total_construction_percentage}}%</td>
@@ -125,7 +125,7 @@
 		<br><br><br>
 		<div style="margin-top:15px;">
 			<div class="col-md-9">
-				<h2 style="color:#3c8dbc;">الوحدات </h2>
+				<h2 style="color:#5d64a6;">الوحدات </h2>
 			</div>
 			<div class="col-md-3">
 				<form  action="/addunit/{{$land->id}}" method="get">
@@ -154,14 +154,14 @@
 						 @endphp
 						@foreach ($land->units as $unit)
 							<tr class="text-center">
-								<td>{{$unit->flat_no}}</td>
-								<td>{{$unit->floor_no}}</td>
-								<td>{{$unit_type[$unit->unit_type]}}</td>
-								<td>{{$unit->area}}</td>
-								<td>{{$unit->price}}</td>
+								<td><a href="/unit/{{$unit->id}}"> {{$unit->flat_no}} </a> </td>
+								<td><a href="/unit/{{$unit->id}}"> {{$unit->floor_no}} </a> </td>
+								<td><a href="/unit/{{$unit->id}}"> {{$unit_type[$unit->unit_type]}} </a> </td>
+								<td><a href="/unit/{{$unit->id}}"> {{$unit->area}} </a> </td>
+								<td><a href="/unit/{{$unit->id}}"> {{$unit->price}} </a> </td>
 							</tr>
 						@endforeach
-							{{-- <tfoot style="background-color:#3c8dbc; color:white;">
+							{{-- <tfoot style="background-color:#5d64a6; color:white;">
 								<td>الإجمالي</td>
 
 

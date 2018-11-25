@@ -8,15 +8,15 @@
 </style>
 	<div class="container-fluid spark-screen">
     <div class="row">
-      <h3>{{ trans('adminlte_lang::land.partners') }}</h3>
+      <h3>شركاء النجاح</h3>
 
       <div class="col-md-12 " style="background-color:white; padding-top:10px;">
         <table class="table table-bordered text-center">
           <thead>
             <tr class="text-center">
-              <td>{{ trans('adminlte_lang::land.name') }}</td>
-              <td>{{ trans('adminlte_lang::land.address') }}</td>
-              <td>{{ trans('adminlte_lang::land.partnerid') }}</td>
+              <td>اسم الشريك</td>
+              <td>العنوان</td>
+              <td>الرقم القومي</td>
             </tr>
           </thead>
           <tbody>

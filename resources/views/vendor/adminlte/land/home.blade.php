@@ -8,16 +8,16 @@
 </style>
 	<div class="container-fluid spark-screen">
     <div class="row">
-      <h3>{{ trans('adminlte_lang::land.lands') }}</h3>
+      <h3>الأراضي</h3>
 
       <div class="col-md-12 " style="background-color:white; padding-top:10px;">
         <table class="table table-bordered text-center">
           <thead>
             <tr class="text-center">
-              <td>{{ trans('adminlte_lang::land.landname') }}</td>
-              <td>{{ trans('adminlte_lang::land.landaddress') }}</td>
-              <td>{{ trans('adminlte_lang::land.contract_date') }}</td>
-              <td>{{ trans('adminlte_lang::land.delivery_date') }}</td>
+              <td>اسم القطعة</td>
+              <td>عنوان القطعة</td>
+              <td>تاريخ التعاقد</td>
+              <td>تاريخ التسليم</td>
             </tr>
           </thead>
           <tbody>

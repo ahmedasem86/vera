@@ -42,7 +42,7 @@
                      <input type="number" name="construction_percentage" step="0.1" max="100"class="form-control" id="exampleInputEmail1" placeholder="حصة المباني ">
                    </div>
              <div class="box-footer">
-               <button type="submit" class="btn btn-primary">{{ trans('adminlte_lang::land.add') }}</button>
+               <button type="submit" class="btn btn-primary">إضافة مشاركه</button>
              </div>
            </form>
          </div>

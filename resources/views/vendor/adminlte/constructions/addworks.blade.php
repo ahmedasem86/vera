@@ -26,21 +26,21 @@
            <form role="form" method="get" action="/partners/store">
              <div class="box-body">
                <div class="form-group">
-                 <label for="exampleInputEmail1">{{ trans('adminlte_lang::land.name') }}</label>
-                 <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="{{ trans('adminlte_lang::land.name') }}">
+                 <label for="exampleInputEmail1">اسم القطعة</label>
+                 <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="اسم القطعة">
                </div>
 
                    <div class="form-group">
-                     <label for="exampleInputEmail1">{{ trans('adminlte_lang::land.address') }}</label>
+                     <label for="exampleInputEmail1">عنوان القطعة</label>
                      <input type="text" name="address" class="form-control" id="exampleInputEmail1" placeholder="{{ trans('adminlte_lang::land.address') }}">
                    </div>
                    <div class="form-group">
-                     <label for="exampleInputEmail1">{{ trans('adminlte_lang::land.partnerid') }}</label>
+                     <label for="exampleInputEmail1">الرقم القومي</label>
                      <input type="text" name="partner_id" class="form-control" id="exampleInputEmail1" placeholder="{{ trans('adminlte_lang::land.partnerid') }}">
                    </div>
 
              <div class="box-footer">
-               <button type="submit" class="btn btn-primary">{{ trans('adminlte_lang::land.add') }}</button>
+               <button type="submit" class="btn btn-primary">إضافة</button>
              </div>
            </form>
          </div>
