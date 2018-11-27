@@ -128,24 +128,31 @@
                         </ul>
                     </li>
                       <li class="treeview">
-                          <a href="#"><i class='fa fa-link'></i> <span>موردون</span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <a href="#"><i class='fa fa-link'></i> <span>موردون منظفات</span> <i class="fa fa-angle-left pull-left"></i></a>
                           <ul class="treeview-menu">
-                              <li><a href="/suppliers">عرض الموردون</a></li>
-                              <li><a href="/supplier/add">إضافة مورد</a></li>
+                              <li><a href="/csuppliers">عرض الموردون</a></li>
+                              <li><a href="/csupplier/add">إضافة مورد</a></li>
                           </ul>
                       </li>
                       <li class="treeview">
-                          <a href="#"><i class='fa fa-link'></i> <span>مشتريات</span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <a href="#"><i class='fa fa-link'></i> <span>مشتريات منظفات</span> <i class="fa fa-angle-left pull-left"></i></a>
                           <ul class="treeview-menu">
-                              <li><a href="/purchases">عرض المشتريات</a></li>
-                              <li><a href="/purchase/add">إضافة مشتريات</a></li>
+                              <li><a href="/cpurchases">عرض المشتريات</a></li>
+                              <li><a href="/cpurchase/add">إضافة مشتريات</a></li>
                           </ul>
                       </li>
                       <li class="treeview">
-                          <a href="#"><i class='fa fa-link'></i> <span>خامات</span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <a href="#"><i class='fa fa-link'></i> <span>خامات منظفات</span> <i class="fa fa-angle-left pull-left"></i></a>
                           <ul class="treeview-menu">
-                              <li><a href="/materials">سجل الخامات </a></li>
-                              <li><a href="/material/add">إضافة خامة للسجل </a></li>
+                              <li><a href="/cmaterials">سجل الخامات </a></li>
+                              <li><a href="/cmaterial/add">إضافة خامة للسجل </a></li>
+                          </ul>
+                      </li>
+                      <li class="treeview">
+                          <a href="#"><i class='fa fa-link'></i> <span>تعاقدات النظافه</span> <i class="fa fa-angle-left pull-left"></i></a>
+                          <ul class="treeview-menu">
+                              <li><a href="/cclients">عرض المتعاقدين</a></li>
+                              <li><a href="/cclient/add">إضافة تعاقد</a></li>
                           </ul>
                       </li>
                   </ul>

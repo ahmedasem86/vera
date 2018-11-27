@@ -18,6 +18,8 @@
               <td>الرقم القومي</td>
               <td>العنوان</td>
               <td>رقم الموبيل</td>
+							<td>قبض</td>
+
             </tr>
           </thead>
           <tbody>
@@ -27,6 +29,13 @@
                     <td><a href="employee/{{$employee->id}}">{{$employee->id_no}}</a></td>
                     <td><a href="employee/{{$employee->id}}">{{$employee->address}}</a></td>
 										<td><a href="employee/{{$employee->id}}">{{$employee->mobile_no}}</a></td>
+										<td>
+												<form class="" action="/salary/add/{{$employee->id}}" method="get">
+													{{ csrf_field() }}
+													<button type="submit" class="btn-lg btn-primary">شهر جديد</button>
+												</form>
+										</td>
+
 									</tr>
 
 								@endforeach

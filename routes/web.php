@@ -57,6 +57,23 @@ Route::get('/employee/{id}', 'EmployeeController@single')->middleware('auth');
 Route::get('/salary/add/{id}', 'SalaryController@add')->middleware('auth');
 Route::post('/salary/store', 'SalaryController@store')->middleware('auth');
 Route::get('/salary/{id}', 'SalaryController@single')->middleware('auth');
+Route::get('/cclients', 'CclientController@home')->middleware('auth');
+Route::get('/cclient/add', 'CclientController@add')->middleware('auth');
+Route::post('/cclient/store', 'CclientController@store')->middleware('auth');
+Route::get('/cclient/{id}', 'CclientController@single')->middleware('auth');
+Route::get('/cmaterials', 'CmaterialController@home')->middleware('auth');
+Route::get('/cmaterial/add', 'CmaterialController@add')->middleware('auth');
+Route::post('/cmaterial/store', 'CmaterialController@store')->middleware('auth');
+Route::get('/cmaterial/{id}', 'CmaterialController@single')->middleware('auth');
+Route::get('/csuppliers', 'CsupplierController@home')->middleware('auth');
+Route::get('/csupplier/add', 'CsupplierController@add')->middleware('auth');
+Route::post('/csupplier/store', 'CsupplierController@store')->middleware('auth');
+Route::get('/csupplier/{id}', 'CsupplierController@single')->middleware('auth');
+Route::get('/cpurchases', 'CpurchaseController@home')->middleware('auth');
+Route::get('/cpurchase/add', 'CpurchaseController@add')->middleware('auth');
+Route::get('/cpurchase/store', 'CpurchaseController@store')->middleware('auth');
+Route::get('/cpurchase/{id}', 'CpurchaseController@store')->middleware('auth');
+
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware

@@ -16,7 +16,8 @@ class SalaryController extends Controller
   }
   public function add($id)
   {
-    $employee = Employee::find($id)->first();
+    $employee = Employee::where('id', $id)->first();
+
       return view('vendor.adminlte.salaries.add' , compact('employee'));
   }
 
