@@ -57,9 +57,7 @@
           </div>
           <!-- /.box -->
           <?php
-            if($unit->status == 0){
-
-            }else{
+            if($unit->status == 1){
               ?>
               <div class="box">
                 <div class="box-header">
@@ -89,6 +87,15 @@
                   </tbody></table>
                 </div>
                 <!-- /.box-body -->
+              </div>
+              <?php
+            }else{
+              ?>
+              <div class="col-md-12">
+                <form class="" action="/unitsale/{{$unit->id}}" method="post">
+                  {{ csrf_field() }}
+                  <button type="submit" class="btn-lg btn-primary">بيع الوحده </button>
+                </form>
               </div>
               <?php
             }
@@ -131,6 +138,9 @@
           </div>
           <!-- /.box -->
         </div>
+        <?php
+          if($unit->status == 1){
+            ?>
         <div class="col-md-12">
           <div class="box">
             <div class="box-header">
@@ -150,40 +160,97 @@
                   <th>دفع جزء </th>
                   <th>دفع الكل</th>
                 </tr>
-                <tr>
-                  <td>١</td>
-                  <td>٢٠٠٠</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-success">مدفوع</span></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>٢</td>
-                  <td>٢٠٠٠</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-warning">مستحق الدفع</span></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>٣</td>
-                  <td>٢٠٠٠</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-danger">متآخر</span></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>٤</td>
-                  <td>٢٠٠٠</td>
-                  <td>11-7-2014</td>
-                  <td><span class="label label-primary">لم يحن معاد الاستحقاق</span></td>
-                  <td></td>
-                </tr>
-              </tbody></table>
+                <tbody>
+                  @foreach ($unit->installements as $i=>$installement)
+                    @php
+                        $cost = $installement->cost - $installement->remaining_cost ;
+                       if($cost == $installement->cost){
+                         $status['text'] = "payed";
+                         $status['color'] = "label-success";
+                       } elseif($cost == 0){
+                         $status['text'] = "not payed";
+                         $status['color'] = "label-danger";
+                       }else{
+                         $status['text'] = "partial payed";
+                         $status['color'] = "label-warning";
+
+                       }
+                    @endphp
+                    <tr>
+                      <td>{{$i+1}}</td>
+                      <td>{{$installement->cost}}</td>
+                      <td>{{$installement->due_date}}</td>
+                      <td><span class="label <?= $status['color'] ?>">{{$status['text']}}</span></td>
+                      <td>{{$cost}}</td>
+                      <td>{{$installement->remaining_cost}}</td>
+                      <td>
+                        <button type="button"  data-id="{{$installement->id}}" class="partial btn btn-primary" autocomplete="off" > pay </button>
+                        <input id="amount-{{$installement->id}}" type="number" name="amount" placeholder="0">
+                      </td>
+
+                      <td><button type="button"  data-id="{{$installement->id}}" data-loading-text="Loading..." class="pay btn btn-primary" autocomplete="off" > Pay All </button></td>
+                    </tr>
+                  @endforeach
+                </tbody>
+              </table>
             </div>
             <!-- /.box-body -->
           </div>
 
         </div>
+        <?php
+      }
+        ?>
     </div>
 </div>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+<script>
+  jQuery('.pay').on('click', function () {
+    var r = confirm("تأكيد دفع كامل مبلغ القسط");
+    if ( r == true){
+      var id = $(this).data('id');
+          var request = $.ajax({
+              url: "/installement/pay/" + id,
+              type: "get",
+            });
+
+      request.done(function(msg) {
+        alert('payment succeeded');
+        location.reload();
+            });
+
+      request.fail(function(jqXHR, textStatus) {
+        alert( "Request failed: " + textStatus );
+      });
+    }
+
+  })
+  jQuery('.partial').on('click', function () {
+    var id = $(this).data('id');
+    var amount = $('#amount-' + id).val();
+    var r = confirm(" تأكيد دفع مبلغ" + amount + " جنيه من القسط المستحق ؟؟");
+    if ( r == true){
+      var id = $(this).data('id');
+          var request = $.ajax({
+              url: "/installement/partial/" + id,
+              type: "get",
+              data:{
+                amount : amount ,
+              }
+            });
+
+      request.done(function(msg) {
+        alert("تمت العملية بنجاح..");
+        location.reload();
+            });
+
+      request.fail(function(jqXHR, textStatus) {
+        console.log(jqXHR.responseText);
+        alert( "Request failed: " + textStatus );
+      });
+    }
+
+  })
+</script>
 @endsection

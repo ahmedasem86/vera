@@ -16,6 +16,10 @@ class Unit extends Model
     {
         return $this->hasMany('App\UnitsPhoto');
     }
+    public function installements()
+    {
+        return $this->hasMany('App\Installement');
+    }
     public function client()
     {
         return $this->belongsTo('App\Client' , 'client_id');

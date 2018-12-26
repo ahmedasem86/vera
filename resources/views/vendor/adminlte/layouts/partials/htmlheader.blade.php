@@ -36,5 +36,8 @@
     h3{
       color: #5d64a6 ;
     }
+    .content-wrapper, .right-side {
+    background-color: #ffffff !important;
+  }
   </style>
 </head>

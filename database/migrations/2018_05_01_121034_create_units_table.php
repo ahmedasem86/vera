@@ -18,7 +18,7 @@ class CreateUnitsTable extends Migration
             $table->increments('id');
             $table->integer('floor_no');
             $table->integer('flat_no');
-            $table->integer('client_id')->unsigned()->default(1);
+            $table->integer('client_id')->unsigned()->nullable();
             $table->integer('land_id')->unsigned();
             $table->float('area');
             $table->bigInteger('price');
@@ -26,6 +26,11 @@ class CreateUnitsTable extends Migration
             $table->integer('status')->default(0);
             $table->integer('selling_method')->default(0);
             $table->string('description');
+            $table->integer('sale_price')->nullable();
+            $table->integer('advance')->nullable();
+            $table->integer('installement_interval')->nullable();
+            $table->integer('no_of_installements')->nullable();
+            $table->string('sale_notes')->nullable();
             $table->timestamps();
         });
         Schema::table('units', function (Blueprint $table) {

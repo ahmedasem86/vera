@@ -40,19 +40,13 @@
                   <li><a href="/land">عرض الاراضي</a></li>
                   <li><a href="/land/add">إضافة أرض</a></li>
                   <li class="treeview">
-                      <a href="#"><i class='fa fa-link'></i> <span>بيع الوحدات </span> <i class="fa fa-angle-left pull-left"></i></a>
-                      <ul class="treeview-menu">
                           <li class="treeview">
                               <a href="#"><i class='fa fa-link'></i> <span>العملاء </span> <i class="fa fa-angle-left pull-left"></i></a>
                               <ul class="treeview-menu">
                                   <li><a href="/clients">عرض العملاء</a></li>
                                   <li><a href="/client/add">إضافة عميل</a></li>
                               </ul>
-                              <li><a href="/clients">كاش</a></li>
-                              <li><a href="/clients">تقسيط</a></li>
-
                           </li>
-                      </ul>
                   </li>
               </ul>
              </li>
@@ -160,8 +154,8 @@
             <li class="treeview">
              <a href="#"><i class='fa fa-link'></i> <span>الخزينه</span> <i class="fa fa-angle-left pull-right"></i></a>
              <ul class="treeview-menu">
-                 <li><a href="#">مصروفات</a></li>
-                 <li><a href="#">ايرادات</a></li>
+                 <li><a href="/safe/outcome">مصروفات</a></li>
+                 <li><a href="/safe/income">إيرادات</a></li>
              </ul>
          </li>
         </ul><!-- /.sidebar-menu -->

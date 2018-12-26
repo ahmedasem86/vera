@@ -21,7 +21,7 @@ class ContractorController extends Controller
         'name' => 'required|max:255',
         'address' => 'required|max:255',
         'contractor_id' => 'required|max:255',
-        'mobile_no' => 'required|max:255',
+        'mobile_no' => 'required',
 
       ]);
       Contractor::create([

@@ -13,4 +13,8 @@ class Cclient extends Model
   {
       return $this->hasMany('App\Cpurchase');
   }
+  public function cheques()
+  {
+      return $this->hasMany('App\Cheque');
+  }
 }

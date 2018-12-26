@@ -13,7 +13,7 @@ class CclientController extends Controller
   }
   public function single($id)
   {
-    $client = Cclient::find($id);
+    $client = Cclient::with('cheques')->find($id);
       return view('vendor.adminlte.cclient.single',compact('client'));
   }
   public function add()

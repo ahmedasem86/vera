@@ -50,6 +50,9 @@ Route::get('/unit/add', 'UnitController@add')->middleware('auth');
 Route::post('/unit/store', 'UnitController@store')->middleware('auth');
 Route::get('/addunit/{id}', 'UnitController@add')->middleware('auth');
 Route::get('/unit/{id}', 'UnitController@single')->middleware('auth');
+Route::post('/unitsale/preview/{id}', 'UnitController@preview')->middleware('auth');
+Route::post('/unitsale/store/{id}', 'UnitController@storesale')->middleware('auth');
+Route::post('/unitsale/{id}', 'UnitController@addsale')->middleware('auth');
 Route::get('/employee', 'EmployeeController@home')->middleware('auth');
 Route::get('/employee/add', 'EmployeeController@add')->middleware('auth');
 Route::post('/employee/store', 'EmployeeController@store')->middleware('auth');
@@ -73,6 +76,14 @@ Route::get('/cpurchases', 'CpurchaseController@home')->middleware('auth');
 Route::get('/cpurchase/add', 'CpurchaseController@add')->middleware('auth');
 Route::get('/cpurchase/store', 'CpurchaseController@store')->middleware('auth');
 Route::get('/cpurchase/{id}', 'CpurchaseController@store')->middleware('auth');
+Route::get('/installement/pay/{id}', 'UnitController@pay')->middleware('auth');
+Route::get('/installement/partial/{id}', 'UnitController@partial')->middleware('auth');
+Route::get('/safe/outcome', 'SafeController@index')->middleware('auth');
+Route::get('/safe/income', 'SafeController@income')->middleware('auth');
+
+Route::get('/cheque/add/{id}', 'ChequeController@add')->middleware('auth');
+Route::get('/cheque/store/{id}', 'ChequeController@store')->middleware('auth');
+
 
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {

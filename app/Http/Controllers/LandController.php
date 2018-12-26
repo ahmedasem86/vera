@@ -45,6 +45,8 @@ class LandController extends Controller
         'predicted_cost' => request('predicted_cost'),
         'contract_date' => request('contract_date'),
         'delivery_date' => request('delivery_date'),
+        'created_at' => date("Y/m/d"),
+        'updated_at'=> date("Y/m/d"),
       ]);
       return redirect('/land');
       }

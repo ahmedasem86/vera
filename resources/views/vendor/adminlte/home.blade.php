@@ -46,7 +46,7 @@
 
 				<div class="info-box-content">
 					<span class="info-box-text">عدد الموظفين</span>
-					<span class="info-box-number">١١٥</span>
+					<span class="info-box-number">{{count($employee)}}</span>
 				</div>
 				<!-- /.info-box-content -->
 			</div>
@@ -58,7 +58,7 @@
 				<span class="info-box-icon bg-green"><i class="ion ion-ios-briefcase"></i></span>
 				<div class="info-box-content">
 					<span class="info-box-text">عدد العملاء</span>
-					<span class="info-box-number">760</span>
+					<span class="info-box-number">{{count($clients)}}</span>
 				</div>
 				<!-- /.info-box-content -->
 			</div>
@@ -72,9 +72,9 @@
 			<div class="row">
 
 					<!-- Default box -->
-					<div class="box">
+					<div class="box col-md-5">
 						<div class="box-header with-border">
-							<h3 class="box-title">تنبيهات</h3>
+							<h3 class="box-title">أقساط مستحقة</h3>
 
 							<div class="box-tools pull-right">
 								<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
@@ -85,6 +85,7 @@
 						</div>
 						<div class="box-body">
 							<div class="table-responsive">
+								@if ($installements_due->count() > 0)
 								<table class="table no-margin">
 									<thead>
 									<tr>
@@ -94,63 +95,75 @@
 									</tr>
 									</thead>
 									<tbody>
-									<tr>
-										<td>احمد محمد</td>
-										<td><span class="label label-success">قسط مقبول الدفع</span></td>
-										<td>
-											<div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas>٢٧-١٠-٢٠١٨</div>
-										</td>
-									</tr>
-									<tr>
-										<td>محمود عزت</td>
-										<td><span class="label label-warning">قسط متآخر</span></td>
-										<td>
-											<div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas>٢٧-١٠-٢٠١٨</div>
-										</td>
-									</tr>
-									<tr>
-										<td>رامي دياب</td>
-										<td><span class="label label-danger">قسط مديونيه</span></td>
-										<td>
-											<div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas>٢٧-١٠-٢٠١٨</div>
-										</td>
-									</tr>
-									<tr>
-										<td>ناديه محمود</td>
-										<td><span class="label label-info">اقتراب قسط مديونيه</span></td>
-										<td>
-											<div class="sparkbar" data-color="#00c0ef" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas>٢٧-١٠-٢٠١٨</div>
-										</td>
-									</tr>
-									<tr>
-										<td>عامر خالد</td>
-										<td><span class="label label-warning">قسط متآخر</span></td>
-										<td>
-											<div class="sparkbar" data-color="#f39c12" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas>٢٧-١٠-٢٠١٨</div>
-										</td>
-									</tr>
-									<tr>
-										<td>ياسر احمد</td>
-										<td><span class="label label-danger">قسط مديونيه</span></td>
-										<td>
-											<div class="sparkbar" data-color="#f56954" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas>٢٧-١٠-٢٠١٨</div>
-										</td>
-									</tr>
-									<tr>
-										<td>مهند زياد</td>
-										<td><span class="label label-success">قسط مقبول الدفع</span></td>
-										<td>
-											<div class="sparkbar" data-color="#00a65a" data-height="20"><canvas width="34" height="20" style="display: inline-block; width: 34px; height: 20px; vertical-align: top;"></canvas>٢٧-١٠-٢٠١٨</div>
-										</td>
-									</tr>
+											@foreach ($installements_due as $installement)
+												<tr>
+													<td>{{$installement->unit->client->name}}</td>
+													<td><span class="label label-success">قسط مقبول الدفع</span></td>
+													<td><span class="sparkbar" data-color="#00a65a" data-height="20">{{$installement->due_date}}</span>
+													</td>
+												</tr>
+											@endforeach
+										@else
+											<tr>
+												<td>لا يوجد اقساط مستحقة غير مدفوعة</td>
+											</tr>
+										@endif
 									</tbody>
 								</table>
 							</div>
 						</div>
 						<!-- /.box-body -->
-						<div class="box-footer clearfix">
+						{{-- <div class="box-footer clearfix">
 							<a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">اظهر جميع التنبيهات</a>
+						</div> --}}
+					</div>
+
+					<!-- Default box -->
+					<div class="box col-md-offset-1 col-md-5">
+						<div class="box-header with-border">
+							<h3 class="box-title">أقتراب قسط</h3>
+
+							<div class="box-tools pull-right">
+								<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+									<i class="fa fa-minus"></i></button>
+								<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+									<i class="fa fa-times"></i></button>
+							</div>
 						</div>
+						<div class="box-body">
+							<div class="table-responsive">
+								@if ($installements_coming->count() > 0)
+								<table class="table no-margin">
+									<thead>
+									<tr>
+										<th>الاسم</th>
+										<th>التنبيه</th>
+										<th>التاريخ</th>
+									</tr>
+									</thead>
+									<tbody>
+											@foreach ($installements_coming as $installement)
+												<tr>
+													<td>{{$installement->unit->client->name}}</td>
+													<td><span class="label label-success">قسط مقبول الدفع</span></td>
+													<td><span class="sparkbar" data-color="#00a65a" data-height="20">{{$installement->due_date}}</span>
+													</td>
+												</tr>
+											@endforeach
+										@else
+											<tr>
+												<td colspan="3"> لا يوجد اقساط واجبة الاستحقاق خلال الشهر القادم</td>
+											</tr>
+										@endif
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- /.box-body -->
+						{{-- <div class="box-footer clearfix">
+							<a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">اظهر جميع التنبيهات</a>
+						</div> --}}
 					</div>
 
 

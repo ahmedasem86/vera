@@ -24,7 +24,7 @@
           <tbody>
                   @foreach ($clients as $client)
 										<tr >
-                    <td><a href="/{{$client->id}}">{{$client->name}}</a></td>
+                    <td><a href="client/{{$client->id}}">{{$client->name}}</a></td>
                     <td><a href="client/{{$client->id}}">{{$client->address}}</a></td>
                     <td><a href="client/{{$client->id}}">{{$client->client_id_no}}</a></td>
                     <td><a href="client/{{$client->id}}">{{$client->mobile_no}}</a></td>
